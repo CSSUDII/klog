@@ -6,14 +6,14 @@ import org.cssudii.klog.loggers.ErrorLogger
 import org.cssudii.klog.loggers.InfoLogger
 import org.cssudii.klog.loggers.WarnLogger
 
-class KLog() {
+open class KLog() {
     private val loggers = HashMap<String, Logger>()
-    open var color: Color = Color.RESET
+    var color: Color = Color.RESET
 
     private val kLogVersion = "1.0-SNAPSHOT"
 
     init {
-        instance = this
+        this.also { instance = it }
     }
 
     var debugPrint = false
@@ -29,8 +29,12 @@ class KLog() {
         setProperty("core.version", kLogVersion)
     }
 
-    fun getLoggerById(loggerID: String): Logger? {
+    open fun getLoggerById(loggerID: String): Logger? {
         return loggers[loggerID]
+    }
+
+    open fun getLoggers(): HashMap<String, Logger> {
+        return loggers
     }
 
     fun info(input: String): KLog {
