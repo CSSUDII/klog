@@ -1,13 +1,10 @@
 package example.example
 
-import jline.console.ConsoleReader
 import org.cssudii.klog.KLog
 
 class Example {
     private val logger: KLog = KLog()
     private val properties = HashMap<String, String>()
-
-    private var reader = ConsoleReader()
 
     private fun setProperties() {
         properties["version"] = "1.0-SNAPSHOT"
@@ -42,14 +39,7 @@ class Example {
             .debug("Version: " + getProperty("version"))
 
         logger.info("Starting org.cssudii.example.Example App.....")
-
-        reader.prompt = "example> "
-
-        var line: String
-
-        while (reader.readLine().also { line = it } != null) {
-            logger.debug("running command: $line")
-        }
+        // Start App!
     }
 }
 
