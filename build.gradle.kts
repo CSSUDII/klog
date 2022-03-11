@@ -15,6 +15,7 @@ dependencies {
     implementation(kotlin("stdlib"))
 }
 
+/**
 publishing {
     repositories {
         maven {
@@ -28,6 +29,19 @@ publishing {
             authentication {
                 create<BasicAuthentication>("basic")
             }
+        }
+    }
+}
+*/
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "org.cssudii"
+            artifactId = "klog"
+            version = "0.0.1"
+
+            from(components["java"])
         }
     }
 }
