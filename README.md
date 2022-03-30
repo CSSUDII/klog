@@ -1,3 +1,5 @@
+**Information coming soon!**
+
 # klog
 Very basic java logger written in Kotlin
 
